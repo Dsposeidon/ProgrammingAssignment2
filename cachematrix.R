@@ -33,3 +33,17 @@ cacheSolve <- function(x, ...) {
   x$setInverse(inv)
   inv
 }
+
+
+x <- matrix( c(2, 4, 3, 1, 5, 6, 7, 3, 1), # the data elements 
+                nrow=3,              # number of rows 
+                ncol=3,              # number of columns 
+                byrow = TRUE)
+
+# Check for determinant and apply solve to get a hint of what we want
+det(x)
+solve(x)
+
+# Now apply cacheSolve and see of the solution matches
+x1 <- makeCacheMatrix(x)
+cacheSolve(x1)
